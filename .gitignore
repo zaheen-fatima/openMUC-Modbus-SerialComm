@@ -1,0 +1,36 @@
+# Ignore Java class files
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore build output directories
+/build/
+/out/
+/target/
+
+# Gradle files and folders
+.gradle/
+/build/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Temporary files
+*.tmp
+
+# Ignore any local config or generated files specific to OpenMUC or jSerialComm if needed

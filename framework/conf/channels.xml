@@ -1,0 +1,22 @@
+<configuration>
+    <driver id="modbus">
+        <device id="device1" access="readwrite">
+            <deviceAddress>COM1</deviceAddress>
+            <settings>RTU:SERIAL_ENCODING_RTU:9600:DATABITS_8:PARITY_NONE:STOPBITS_1:ECHO_FALSE:FLOWCONTROL_NONE:FLOWCONTROL_NONE</settings>
+
+            <channel id="holding1">
+                <channelAddress>1:HOLDING_REGISTERS:100:INT16</channelAddress>
+                <valueType>INTEGER</valueType>
+                <samplingInterval>1000</samplingInterval>
+                <loggingInterval>4000</loggingInterval>
+            </channel>
+
+            <channel id="holding2">
+                <channelAddress>1:HOLDING_REGISTERS:101:INT16</channelAddress>
+                <valueType>INTEGER</valueType>
+                <samplingInterval>1000</samplingInterval>
+                <loggingInterval>4000</loggingInterval>
+            </channel>
+        </device>
+    </driver>
+</configuration>

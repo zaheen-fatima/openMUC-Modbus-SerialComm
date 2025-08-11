@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'biz.aQute.bnd.builder'
+}
+
+
+
+jar {
+    bnd(
+
+            'Bundle-SymbolicName': 'org.openmuc.framework.app.modbusRTU',
+            'Bundle-Version': '0.20.1',
+
+            'Import-Package': 'com.fazecast.jSerialComm;version="[2.0.0,3.0.0)",org.osgi.service.component;version="[1.5,2)", org.osgi.service.component.annotations;version="[1.5,2)", org.openmuc.framework.data;version="[0.20,1)", org.openmuc.framework.dataaccess;version="[0.20,1)",org.slf4j;version="[1.7,2)",*',
+            'Export-Package': 'org.openmuc.framework.app.modbusRTU;version=0.20.1',
+            '-dsannotations': '*',
+    )
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Core OpenMUC APIs for DataAccessService, Channel, Value, etc.
+    compileOnly 'org.osgi:org.osgi.service.component.annotations:1.5.1'
+    compileOnly 'org.osgi:org.osgi.service.component:1.5.1'
+    implementation 'com.fazecast:jSerialComm:2.11.2'
+    implementation 'com.ghgande:j2mod:3.2.1'
+    compileOnly project(':openmuc-core-api') // Contains Data, DataAccessService, etc.
+    compileOnly 'org.slf4j:slf4j-api:1.7.36'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+}

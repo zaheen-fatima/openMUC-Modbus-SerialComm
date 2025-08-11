@@ -1,0 +1,28 @@
+def projectName = "OpenMUC Driver - Modbus"
+def projectDescription = "Modbus driver for the OpenMUC framework."
+
+
+dependencies {
+    implementation project(':openmuc-core-spi')
+    // Use j2mod as external OSGi bundle (do not embed)
+    implementation group: 'com.ghgande', name: 'j2mod', version: j2modVersion
+
+    testImplementation group: "commons-codec", name: "commons-codec", version: commonsCodecVersion
+}
+
+jar {
+    // Do not embed j2mod; keep default import calculation
+    bnd('Bundle-Name': projectName,
+            'Import-Package': '*' + jarDefaultImportPackageVersion)
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = projectName
+                description = projectDescription
+            }
+        }
+    }
+}
